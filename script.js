@@ -17,3 +17,22 @@ document.querySelectorAll('details').forEach(panel=>panel.addEventListener('togg
   try{if(localStorage.getItem('portfolio-language')==='de')window.location.replace('de.html'+window.location.hash);}catch(e){}
  }
 })();
+
+(function(){
+ const button=document.getElementById('theme-toggle');
+ if(!button)return;
+ const root=document.documentElement;
+ const german=root.lang==='de';
+ function sync(){
+  const dark=root.dataset.theme==='dark';
+  button.setAttribute('aria-pressed',String(dark));
+  const label=german?(dark?'Hellmodus aktivieren':'Dunkelmodus aktivieren'):(dark?'Enable light mode':'Enable dark mode');
+  button.setAttribute('aria-label',label);button.title=label;
+  button.querySelector('[aria-hidden]').textContent=dark?'☀':'☾';
+  button.querySelector('.theme-label').textContent=german?(dark?'Hell':'Dunkel'):(dark?'Light':'Dark');
+ }
+ button.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('portfolio-theme',root.dataset.theme);}catch(e){}sync();});
+ const system=window.matchMedia('(prefers-color-scheme: dark)');
+ if(system.addEventListener)system.addEventListener('change',event=>{let saved;try{saved=localStorage.getItem('portfolio-theme');}catch(e){}if(saved!=='dark'&&saved!=='light'){root.dataset.theme=event.matches?'dark':'light';sync();}});
+ sync();
+})();
