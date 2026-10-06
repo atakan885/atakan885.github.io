@@ -36,3 +36,29 @@ document.querySelectorAll('details').forEach(panel=>panel.addEventListener('togg
  if(system.addEventListener)system.addEventListener('change',event=>{let saved;try{saved=localStorage.getItem('portfolio-theme');}catch(e){}if(saved!=='dark'&&saved!=='light'){root.dataset.theme=event.matches?'dark':'light';sync();}});
  sync();
 })();
+
+// Hide on downward scroll; show on upward scroll, keyboard focus or page top.
+(function(){
+ const header=document.querySelector('header');
+ if(!header)return;
+ let previous=Math.max(0,window.scrollY),distance=0,direction=0,pending=false;
+ function show(){header.classList.remove('header-hidden');}
+ function update(){
+  pending=false;
+  const y=Math.max(0,window.scrollY),delta=y-previous;
+  previous=y;
+  header.classList.toggle('header-scrolled',y>8);
+  if(y<32){show();distance=0;direction=0;return;}
+  if(!delta)return;
+  const nextDirection=delta>0?1:-1;
+  if(nextDirection!==direction){distance=0;direction=nextDirection;}
+  distance+=Math.abs(delta);
+  if(distance<12)return;
+  if(direction<0||header.contains(document.activeElement))show();
+  else if(y>header.offsetHeight+24)header.classList.add('header-hidden');
+  distance=0;
+ }
+ window.addEventListener('scroll',()=>{if(!pending){pending=true;requestAnimationFrame(update);}},{passive:true});
+ header.addEventListener('focusin',show);
+ window.addEventListener('pageshow',()=>{previous=Math.max(0,window.scrollY);distance=0;show();header.classList.toggle('header-scrolled',previous>8);});
+})();

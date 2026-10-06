@@ -36,3 +36,21 @@ header{position:sticky;top:0;z-index:50;background:var(--paper);box-shadow:0 3px
 html{scroll-padding-top:150px}
 @media(max-width:620px){html{scroll-padding-top:185px}}
 @media print{header{position:static;box-shadow:none}}
+
+/* Refined navigation with scroll-aware visibility. */
+header{max-width:none;padding:16px max(24px,calc((100vw - 1200px)/2));border-bottom:1px solid var(--line);background:var(--paper);box-shadow:0 4px 24px rgba(16,34,49,.05);transition:transform .24s ease,box-shadow .24s ease;will-change:transform}
+@supports(backdrop-filter:blur(16px)){header{background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}}
+header.header-hidden{transform:translateY(calc(-100% - 4px));pointer-events:none}
+header.header-scrolled{box-shadow:0 6px 28px rgba(16,34,49,.12)}
+header .brand{font-size:22px;letter-spacing:-.06em;color:var(--blue)}
+header .brand span{color:var(--ink);letter-spacing:-.02em;font-weight:650}
+header nav{gap:4px;padding:4px;background:color-mix(in srgb,var(--muted) 7%,transparent);border:1px solid var(--line);border-radius:30px}
+header nav a{padding:7px 12px;border-radius:24px;font-weight:550;transition:background .18s ease,color .18s ease}
+header nav a:hover,header nav a:focus-visible{background:color-mix(in srgb,var(--blue) 12%,transparent);color:var(--blue)}
+header .language-switch{gap:3px;padding:3px;border:1px solid var(--line);border-radius:22px}
+header .language-switch a{border:0;border-radius:18px;padding:6px 9px}
+header .theme-toggle{border-radius:22px;padding:9px 12px}
+@media(max-width:850px){header{padding:14px 24px;gap:12px}header nav{gap:2px}header nav a{padding:6px 9px}}
+@media(max-width:620px){header{padding:12px 16px;column-gap:8px;row-gap:10px}header nav{width:100%;justify-content:space-between;flex-wrap:wrap;border-radius:14px}header nav a{padding:6px 8px;font-size:11px}header .language-switch a{padding:5px 6px}header .theme-toggle{padding:8px}header .brand span{font-size:12px}}
+@media(prefers-reduced-motion:reduce){header,header nav a{transition:none}}
+@media print{header{position:static;transform:none!important;backdrop-filter:none;box-shadow:none}}
