@@ -13,7 +13,7 @@ document.querySelectorAll('details').forEach(panel=>panel.addEventListener('togg
   });
  });
  // Explicit language pages remain shareable; only the root entry follows a saved preference.
- if(current==='en' && !window.location.pathname.endsWith('/index.html')){
+ if(current==='en' && window.location.pathname.endsWith('/')){
   try{if(localStorage.getItem('portfolio-language')==='de')window.location.replace('de.html'+window.location.hash);}catch(e){}
  }
 })();
@@ -61,4 +61,18 @@ document.querySelectorAll('details').forEach(panel=>panel.addEventListener('togg
  window.addEventListener('scroll',()=>{if(!pending){pending=true;requestAnimationFrame(update);}},{passive:true});
  header.addEventListener('focusin',show);
  window.addEventListener('pageshow',()=>{previous=Math.max(0,window.scrollY);distance=0;show();header.classList.toggle('header-scrolled',previous>8);});
+})();
+
+// Project navigation disclosure, usable by mouse, touch and keyboard.
+(function(){
+ const holder=document.querySelector('.project-menu');
+ if(!holder)return;
+ const button=holder.querySelector('.project-menu-toggle');
+ const panel=holder.querySelector('.project-dropdown');
+ function setOpen(open){button.setAttribute('aria-expanded',String(open));panel.hidden=!open;}
+ button.addEventListener('click',()=>setOpen(panel.hidden));
+ document.addEventListener('click',event=>{if(!holder.contains(event.target))setOpen(false);});
+ holder.addEventListener('keydown',event=>{if(event.key==='Escape'){setOpen(false);button.focus();event.preventDefault();}});
+ holder.addEventListener('focusout',event=>{if(!holder.contains(event.relatedTarget))setOpen(false);});
+ panel.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{setOpen(false);if(link.getAttribute('href').includes('#'))button.blur();}));
 })();
