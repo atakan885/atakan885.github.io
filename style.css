@@ -126,3 +126,17 @@ header .theme-toggle{border-radius:22px;padding:9px 12px}
 .video-evidence video{width:100%;max-width:800px;max-height:450px;margin:22px auto 12px}
 .conversation-preview>img{width:100%;max-width:340px;justify-self:center;margin:auto}
 @media(max-width:600px){.conversation-preview>img{max-width:280px}}
+
+.portfolio-hero h1.stepped-heading{width:100%;max-width:none}
+.stepped-heading>span{display:block}
+.stepped-heading>span:nth-child(1){text-align:left}
+.stepped-heading>span:nth-child(2){text-align:center}
+.stepped-heading>span:nth-child(3){text-align:right}
+
+/* Balanced transition from the introduction to projects. */
+.portfolio-hero{padding-bottom:48px}
+.portfolio-hero .intro{margin-bottom:0}
+.project-gallery{padding-top:0}
+.project-gallery>h2{margin-bottom:18px}
+.project-section-intro{max-width:850px;color:var(--muted);font-size:17px;line-height:1.65;margin:0 0 28px}
+@media(max-width:600px){.portfolio-hero{padding-bottom:36px}.project-section-intro{font-size:16px}}
