@@ -76,3 +76,40 @@ document.querySelectorAll('details').forEach(panel=>panel.addEventListener('togg
  holder.addEventListener('focusout',event=>{if(!holder.contains(event.relatedTarget))setOpen(false);});
  panel.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{setOpen(false);if(link.getAttribute('href').includes('#'))button.blur();}));
 })();
+
+// Desktop hover reveals the overview; touch opens the project directly.
+(()=>{
+ const hover=window.matchMedia('(hover: hover) and (pointer: fine)');
+ document.querySelectorAll('.flip-card').forEach(card=>{
+  const front=card.querySelector('.flip-front'),back=card.querySelector('.flip-back');
+  function show(value){
+   card.classList.toggle('is-flipped',value);
+   front.inert=value;back.inert=!value;
+   front.setAttribute('aria-hidden',String(value));
+   back.setAttribute('aria-hidden',String(!value));
+  }
+  card.addEventListener('pointerenter',()=>{if(hover.matches&&!card.contains(document.activeElement))show(true);});
+  card.addEventListener('pointerleave',()=>{if(!card.contains(document.activeElement))show(false);});
+  card.addEventListener('focusout',event=>{if(!card.contains(event.relatedTarget))show(false);});
+  card.addEventListener('keydown',event=>{if(event.key==='Escape'){show(false);card.focus({preventScroll:true});}});
+  hover.addEventListener('change',()=>show(false));
+ });
+})();
+
+// Clicking the card surface opens its project; explicit controls keep their action.
+document.querySelectorAll('.flip-card[data-project-url]').forEach(card=>{
+ card.addEventListener('click',event=>{
+  if(event.defaultPrevented||event.button!==0||event.target.closest('a,button'))return;
+  if(window.getSelection().toString().trim())return;
+  const url=card.dataset.projectUrl;
+  if(event.ctrlKey||event.metaKey)window.open(url,'_blank','noopener');
+  else window.location.assign(url);
+ });
+});
+
+// Whole-card links remain available to keyboard users.
+document.querySelectorAll('.flip-card[data-project-url]').forEach(card=>{
+ card.addEventListener('keydown',event=>{
+  if(event.target===card&&event.key==='Enter'){event.preventDefault();window.location.assign(card.dataset.projectUrl);}
+ });
+});
