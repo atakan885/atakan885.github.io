@@ -140,3 +140,55 @@ header .theme-toggle{border-radius:22px;padding:9px 12px}
 .project-gallery>h2{margin-bottom:18px}
 .project-section-intro{max-width:850px;color:var(--muted);font-size:17px;line-height:1.65;margin:0 0 28px}
 @media(max-width:600px){.portfolio-hero{padding-bottom:36px}.project-section-intro{font-size:16px}}
+
+.learning-demo{margin:32px 0;padding:30px;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
+.learning-demo h3{margin-top:0}.learning-demo h4{font-size:20px;line-height:1.5}
+.demo-choices{display:grid;gap:12px;margin:22px 0}
+.demo-choices button,.demo-reset{font:inherit;text-align:left;cursor:pointer;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);padding:15px 18px}
+.demo-choices button:hover,.demo-choices button[aria-pressed="true"]{border-color:var(--blue);box-shadow:inset 4px 0 var(--blue)}
+.demo-choices button:focus-visible,.demo-reset:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.demo-feedback:not(:empty){padding:18px;border-left:4px solid var(--blue);background:rgba(36,94,233,.07)}
+.external-examples h4{margin:25px 0 8px}.external-examples a{font-size:14px}
+@media(max-width:600px){.learning-demo{padding:20px}.demo-choices button{font-size:15px}}
+
+.demo-panel[hidden]{display:none}
+.demo-navigation{display:flex;align-items:center;justify-content:space-between;gap:15px;border-top:1px solid var(--line);padding-top:22px;margin-top:28px}
+.demo-navigation button,.workflow-choices button,.workflow-reset{font:inherit;border:1px solid var(--line);border-radius:9px;padding:12px 18px;background:var(--paper);color:var(--ink);cursor:pointer}
+.demo-navigation button:disabled,.workflow-choices button:disabled{opacity:.45;cursor:default}
+.demo-navigation button:focus-visible,.workflow-choices button:focus-visible,.workflow-reset:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.demo-panel label{display:block;margin:22px 0;font-weight:600}.demo-panel output{float:right;color:var(--blue)}
+.demo-panel input[type="range"]{display:block;width:100%;margin-top:14px;accent-color:var(--blue)}
+.process-bars{display:grid;gap:14px;padding:20px 0}.process-bars>div{display:grid;grid-template-columns:100px 1fr;gap:12px;align-items:center}.process-bars meter{width:100%;height:28px}
+.simulation-result,.workflow-feedback:not(:empty){border-left:4px solid var(--blue);padding:16px;background:rgba(36,94,233,.07)}
+.workflow-choices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}.workflow-choices button{text-align:left}.workflow-progress{padding-left:26px}
+@media(max-width:600px){.workflow-choices{grid-template-columns:1fr}.demo-navigation button{padding:10px 14px}}
+.clue-grid,.diagnosis-choices,.adaptive-first,.adaptive-options{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}
+.clue-grid button,.diagnosis-choices button,.adaptive-first button,.adaptive-options button,.adaptive-reset{font:inherit;text-align:left;padding:12px 18px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);cursor:pointer}
+.clue-grid button[aria-pressed="true"]{border-color:var(--blue)}
+.demo-carousel button:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.clue-output,.diagnosis-feedback:not(:empty),.adaptive-guidance,.adaptive-feedback:not(:empty){padding:18px;border-left:4px solid var(--blue);background:rgba(36,94,233,.07)}
+.message-sample{margin:22px 0;padding:24px;border:1px solid var(--line);border-radius:12px;font-size:18px}
+
+/* A distinct application window contains the interactive examples. */
+.demo-carousel{border:2px solid #9aafc0;border-radius:18px;padding:0 30px 30px;background:#fff;box-shadow:0 18px 48px rgba(16,34,49,.14);overflow:hidden;margin:38px 0}
+.demo-window-bar{display:flex;align-items:center;gap:14px;margin:0 -30px 28px;padding:15px 22px;background:#102231;color:#edf3f8;font-size:14px;font-weight:600;border-bottom:1px solid #32495b}
+.window-dots{font-size:12px;letter-spacing:3px;color:#8da8bc}.window-tag{margin-left:auto;font-size:10px;letter-spacing:.14em;padding:4px 8px;border:1px solid #5b7589;border-radius:5px}
+.demo-carousel>.eyebrow{margin-top:0}.demo-carousel>.demo-panel{border:1px solid var(--line);border-radius:12px;padding:24px;margin-top:24px;background:var(--paper)}
+.demo-carousel .demo-navigation{margin-top:24px;padding-top:20px}.demo-carousel .small-note{font-size:13px;line-height:1.6;color:var(--muted)}
+[data-theme="dark"] .demo-carousel{background:#172331;border-color:#526b80;box-shadow:0 18px 48px rgba(0,0,0,.3)}
+@media(max-width:600px){.demo-carousel{padding:0 18px 20px}.demo-window-bar{margin:0 -18px 22px;padding:14px 16px;font-size:12px}.demo-carousel>.demo-panel{padding:18px}.window-dots{letter-spacing:1px}}
+.studio-profiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
+.studio-profiles button,.studio-actions button,.studio-revise{font:inherit;text-align:left;cursor:pointer;padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+.studio-profiles button[aria-pressed="true"]{border-color:var(--blue);box-shadow:inset 0 3px var(--blue)}
+.studio-profiles strong,.studio-profiles span{display:block}.studio-profiles span{font-size:13px;color:var(--muted);margin-top:7px}
+.studio-builder{display:grid;gap:8px}.studio-builder label{font-size:14px;margin:8px 0}.studio-builder select{display:block;width:100%;font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px;margin-top:8px}
+.studio-draft,.studio-dialogue{padding:20px;background:rgba(36,94,233,.07);border-radius:12px;margin:20px 0}.studio-draft p{margin-bottom:0}
+.studio-actions{display:flex;gap:12px;flex-wrap:wrap}.studio-actions .studio-test{background:var(--blue);color:white}
+.studio-speaker{font-weight:700}.studio-review{border-top:1px solid var(--line);margin-top:25px;padding-top:5px}
+.studio-metrics{display:grid;gap:8px}.studio-metrics p{padding:10px 14px;margin:0;border:1px solid var(--line);border-radius:8px}.criterion-met{border-left:4px solid #398260!important}.criterion-improve{border-left:4px solid #bd8c36!important}
+@media(max-width:700px){.studio-profiles{grid-template-columns:1fr}}
+
+.studio-custom{display:block;width:100%;margin-top:10px;padding:12px;font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;resize:vertical}.studio-custom[hidden]{display:none}
+
+/* Transparent bridge covers the visual gap above the project dropdown. */
+.project-menu::after{content:"";position:absolute;top:100%;left:0;width:370px;max-width:calc(100vw - 48px);height:14px}
