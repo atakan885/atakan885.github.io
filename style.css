@@ -192,3 +192,12 @@ header .theme-toggle{border-radius:22px;padding:9px 12px}
 
 /* Transparent bridge covers the visual gap above the project dropdown. */
 .project-menu::after{content:"";position:absolute;top:100%;left:0;width:370px;max-width:calc(100vw - 48px);height:14px}
+
+/* Detailed rehearsal feedback stays readable on narrow screens. */
+.studio-response{white-space:pre-line;line-height:1.7}
+.studio-metrics{display:grid;grid-template-columns:1fr;gap:14px}
+.studio-feedback-item{padding:18px;border:1px solid var(--line,#ccd3d9);border-radius:12px;background:var(--surface,transparent)}
+.studio-feedback-item h5{font-size:1rem;margin:0 0 10px;line-height:1.45}
+.studio-feedback-item blockquote{margin:0 0 12px;padding:0 0 0 12px;border-left:3px solid currentColor;font-style:italic;line-height:1.55;opacity:.85}
+.studio-feedback-item p{margin:0;line-height:1.65}
+.studio-coach{line-height:1.7}
