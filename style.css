@@ -86,7 +86,7 @@ header .theme-toggle{border-radius:22px;padding:9px 12px}
 
 /* Interactive project cards */
 .project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;padding:18px 5px 30px;align-items:stretch}
-.project-card.flip-card{display:block;position:relative;overflow:visible;border:0;background:transparent;box-shadow:none;transform:rotate(var(--card-angle));perspective:1400px;min-width:0}
+.project-card.flip-card{display:block;position:relative;overflow:visible;border:0;background:transparent;box-shadow:none;transform:none;perspective:1400px;min-width:0}
 .project-card.flip-card:hover{transform:rotate(0deg);box-shadow:none}
 .flip-inner{position:relative;display:grid;height:100%;transform-style:preserve-3d;transition:transform .55s ease}
 .flip-card.is-flipped .flip-inner{transform:rotateY(180deg)}
