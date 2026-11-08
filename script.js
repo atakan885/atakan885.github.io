@@ -89,11 +89,12 @@ document.querySelectorAll('details').forEach(panel=>panel.addEventListener('togg
    front.setAttribute('aria-hidden',String(value));
    back.setAttribute('aria-hidden',String(!value));
   }
-  card.addEventListener('pointerenter',()=>{if(hover.matches&&!card.contains(document.activeElement))show(true);});
+  card.addEventListener('pointerenter',()=>{if(hover.matches&&document.documentElement.dataset.reading!=='easy'&&!card.contains(document.activeElement))show(true);});
   card.addEventListener('pointerleave',()=>{if(!card.contains(document.activeElement))show(false);});
   card.addEventListener('focusout',event=>{if(!card.contains(event.relatedTarget))show(false);});
   card.addEventListener('keydown',event=>{if(event.key==='Escape'){show(false);card.focus({preventScroll:true});}});
   hover.addEventListener('change',()=>show(false));
+  document.addEventListener('portfolio-reading-change',()=>show(false));
  });
 })();
 
@@ -222,3 +223,33 @@ document.querySelectorAll('.rehearsal-studio').forEach(studio=>{
  const hear=studio.querySelector('.studio-hear');if(!('speechSynthesis' in window))hear.hidden=true;
  hear.addEventListener('click',()=>{window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(studio.querySelector('.studio-draft-text').textContent);u.lang=de?'de-DE':'en-GB';window.speechSynthesis.speak(u);});
 });
+
+// Keep the reading preference across projects, languages and reloads.
+(()=>{
+ const root=document.documentElement,button=document.getElementById('reading-toggle');
+ if(!button)return;
+ const panels=[...document.querySelectorAll('.project-extra')];
+ function openLinkedPanel(){
+  if(!window.location.hash)return;
+  const target=document.getElementById(window.location.hash.slice(1));
+  const panel=target?.closest('details');
+  if(panel)panel.open=true;
+ }
+ function sync(easy){
+  if(easy)root.dataset.reading='easy';
+  else delete root.dataset.reading;
+  button.setAttribute('aria-pressed',String(easy));
+ }
+ sync(root.dataset.reading==='easy');
+ if(root.dataset.reading==='easy')panels.forEach(panel=>{panel.open=false;});
+ button.hidden=false;
+ button.addEventListener('click',()=>{
+  const easy=root.dataset.reading!=='easy';
+  sync(easy);
+  try{localStorage.setItem('portfolio-reading',easy?'easy':'standard');}catch{}
+  panels.forEach(panel=>{panel.open=!easy&&panel.hasAttribute('data-open-standard');});
+  document.dispatchEvent(new Event('portfolio-reading-change'));
+ });
+ window.addEventListener('hashchange',openLinkedPanel);
+ openLinkedPanel();
+})();
