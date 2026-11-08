@@ -1,0 +1,2 @@
+try{if(localStorage.getItem('portfolio-reading')==='easy')document.documentElement.dataset.reading='easy'}catch(e){}
+(function(){try{var t=localStorage.getItem('portfolio-theme');if(t!=='dark'&&t!=='light')t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;}catch(e){document.documentElement.dataset.theme=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}})();

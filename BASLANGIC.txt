@@ -1,13 +1,9 @@
-GITHUB YÜKLEME
-ZIP dosyasını açın. İçindeki tüm HTML dosyalarını, style.css, script.js ve assets klasörünü GitHub deposunun köküne yükleyin. ZIP dosyasını veya dış klasörü yüklemeyin.
-Ana sayfa: index.html. Almanca: de.html. Her proje için EN ve DE sayfaları vardır.
-AI avatarı ve dashboard önerilen ürünün temsili görselleridir; aktif chatbot veya gerçek veri paneli değildir.
+GITHUB PAGES GÜNCELLEME
 
-BU GÜNCELLEME
-Mevcut GitHub Pages sitesini güncellemek için 18 HTML dosyasını, style.css ve script.js dosyalarını birlikte değiştirin. Assets klasörü bu sürümde değişmedi.
-Easy read / Einfach lesen seçimi tarayıcıda saklanır. Proje videoları ve örnekleri başlıklarına tıklanarak açılır.
+ZIP'i açın. Atakan_Coban_HTML_Portfolio klasörünün içeriğini GitHub deponuzun köküne yükleyin ve mevcut dosyaları değiştirin. ZIP dosyasını veya dış klasörü yüklemeyin.
 
-Bu son düzenleme için 18 HTML dosyasını güncelleyin: Hakkımda / About menü bağlantısı tüm sayfalardan kaldırıldı.
+Bu sürümde assets klasörü, learning-lab.js, preferences.js, favicon.ico, robots.txt, sitemap.xml ve 404.html de yüklenmelidir. Önceki büyük kart görselleri artık kullanılmıyor; depoda kalmaları sitenin yükleme hızını etkilemez.
 
-OKUMA MODLARI
-Easy read / Einfach lesen kısa proje özetlerini gösterir. Normal görünümde her proje için geliştirme süreci, iş yeri uygulamaları ve değerlendirme önerileri vardır. Bu güncelleme için 18 HTML dosyasını, style.css ve script.js dosyalarını birlikte değiştirin.
+Ana sayfa: index.html. Almanca: de.html. Her proje için EN ve DE sayfaları vardır. Easy read / Einfach lesen kısa proje özetlerini gösterir; normal görünüm geliştirme sürecini, iş yeri uygulamalarını ve değerlendirme önerilerini içerir.
+
+AI avatarı ve gösterge paneli önerilen ürünün temsili görselleridir. Etkileşimli örnekler yerel kurallarla çalışır.

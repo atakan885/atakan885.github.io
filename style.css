@@ -250,3 +250,25 @@ header nav #reading-toggle[aria-pressed="true"]{color:var(--blue);border-color:v
 .project-depth h2{font-size:clamp(18px,2.2vw,23px);line-height:1.35;margin:0 0 7px;color:var(--ink)}
 .project-depth p{margin:0}
 [data-reading="easy"] .project-depth{display:none}
+
+/* Portfolio audit: scalable headings, native card links and larger touch targets. */
+h1,h2,h3{overflow-wrap:anywhere;hyphens:auto}
+.project-card.flip-card{text-decoration:none;color:var(--ink)}
+.project-card.flip-card:focus-visible{outline:3px solid var(--blue);outline-offset:5px;border-radius:18px}
+.portfolio-hero{display:grid;grid-template-columns:minmax(0,1fr) 200px;align-items:center;gap:clamp(20px,5vw,64px)}
+.portfolio-purpose{margin-top:12px!important}
+.hero-portrait{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border:1px solid var(--line);border-radius:20px}
+.hero-contact{margin-top:20px}
+.project-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:14px 17px;margin:0 0 22px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--blue) 5%,var(--paper))}
+.project-facts dt{font-weight:700;color:var(--blue);font-size:.88em}
+.project-facts dd{margin:3px 0 0}
+.project-extra-body video{height:auto;aspect-ratio:1000 / 562}
+.error-links{display:flex;flex-wrap:wrap;gap:12px}
+.not-found{padding-top:64px}
+@media(max-width:620px){
+ header .project-menu-toggle,header nav>a,header nav #reading-toggle,header .language-switch a,header .theme-toggle{display:inline-flex;min-height:44px;align-items:center;justify-content:center}
+ header nav{justify-content:flex-start;gap:5px}
+ .portfolio-hero{grid-template-columns:1fr;gap:16px}
+ .hero-portrait{grid-row:1;width:120px;border-radius:14px}
+ .project-facts{grid-template-columns:1fr;gap:8px}
+}
