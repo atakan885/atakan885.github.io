@@ -6,3 +6,8 @@ AI avatarı ve dashboard önerilen ürünün temsili görselleridir; aktif chatb
 BU GÜNCELLEME
 Mevcut GitHub Pages sitesini güncellemek için 18 HTML dosyasını, style.css ve script.js dosyalarını birlikte değiştirin. Assets klasörü bu sürümde değişmedi.
 Easy read / Einfach lesen seçimi tarayıcıda saklanır. Proje videoları ve örnekleri başlıklarına tıklanarak açılır.
+
+Bu son düzenleme için 18 HTML dosyasını güncelleyin: Hakkımda / About menü bağlantısı tüm sayfalardan kaldırıldı.
+
+OKUMA MODLARI
+Easy read / Einfach lesen kısa proje özetlerini gösterir. Normal görünümde her proje için geliştirme süreci, iş yeri uygulamaları ve değerlendirme önerileri vardır. Bu güncelleme için 18 HTML dosyasını, style.css ve script.js dosyalarını birlikte değiştirin.

@@ -243,3 +243,13 @@ header nav #reading-toggle[aria-pressed="true"]{color:var(--blue);border-color:v
  .project-summary,[data-reading="easy"] .project-grid,.example-media{grid-template-columns:1fr}
  header nav #reading-toggle{font-size:11px;padding:5px 7px}
 }
+
+/* Detailed case studies in standard view, short summaries in Easy read. */
+.project-depth{max-width:78ch;margin:26px 0 24px}
+.project-depth>section{border-top:1px solid var(--line);padding:17px 0 0;margin:0 0 18px}
+.project-depth h2{font-size:clamp(18px,2.2vw,23px);line-height:1.35;margin:0 0 7px;color:var(--ink)}
+.project-depth p{margin:0}
+[data-reading="easy"] .project-depth{display:none}
+.reading-more{display:none}
+[data-reading="easy"] .reading-more:not([hidden]){display:inline-block;margin:0 0 18px;padding:8px 13px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--blue);font:inherit;font-weight:650;cursor:pointer}
+.reading-more:focus-visible,.project-depth h2:focus-visible{outline:3px solid var(--blue);outline-offset:3px}

@@ -243,13 +243,23 @@ document.querySelectorAll('.rehearsal-studio').forEach(studio=>{
  sync(root.dataset.reading==='easy');
  if(root.dataset.reading==='easy')panels.forEach(panel=>{panel.open=false;});
  button.hidden=false;
- button.addEventListener('click',()=>{
-  const easy=root.dataset.reading!=='easy';
+ function setReading(easy){
   sync(easy);
   try{localStorage.setItem('portfolio-reading',easy?'easy':'standard');}catch{}
   panels.forEach(panel=>{panel.open=!easy&&panel.hasAttribute('data-open-standard');});
   document.dispatchEvent(new Event('portfolio-reading-change'));
- });
+ }
+ button.addEventListener('click',()=>setReading(root.dataset.reading!=='easy'));
+ const more=document.querySelector('[data-reading-more]');
+ const detail=document.querySelector('.project-depth h2');
+ if(more&&detail){
+  more.hidden=false;
+  more.addEventListener('click',()=>{
+   setReading(false);
+   detail.tabIndex=-1;
+   detail.focus();
+  });
+ }
  window.addEventListener('hashchange',openLinkedPanel);
  openLinkedPanel();
 })();
