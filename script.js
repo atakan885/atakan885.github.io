@@ -106,28 +106,17 @@ document.querySelectorAll('.project-menu').forEach(menu=>{
 (()=>{
  const root=document.documentElement,button=document.getElementById('reading-toggle');
  if(!button)return;
- const panels=[...document.querySelectorAll('.project-extra')];
- function openLinkedPanel(){
-  if(!window.location.hash)return;
-  const target=document.getElementById(window.location.hash.slice(1));
-  const panel=target?.closest('details');
-  if(panel)panel.open=true;
- }
  function sync(easy){
   if(easy)root.dataset.reading='easy';
   else delete root.dataset.reading;
   button.setAttribute('aria-pressed',String(easy));
  }
  sync(root.dataset.reading==='easy');
- if(root.dataset.reading==='easy')panels.forEach(panel=>{panel.open=false;});
  button.hidden=false;
  function setReading(easy){
   sync(easy);
   try{localStorage.setItem('portfolio-reading',easy?'easy':'standard');}catch{}
-  panels.forEach(panel=>{panel.open=!easy&&panel.hasAttribute('data-open-standard');});
   document.dispatchEvent(new Event('portfolio-reading-change'));
  }
  button.addEventListener('click',()=>setReading(root.dataset.reading!=='easy'));
- window.addEventListener('hashchange',openLinkedPanel);
- openLinkedPanel();
 })();

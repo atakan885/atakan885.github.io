@@ -279,3 +279,7 @@ h1,h2,h3{overflow-wrap:anywhere;hyphens:auto}
 [data-reading="easy"] .project-resources.easy-only{display:flex}
 [data-reading="easy"] .full-project{display:none}
 .full-project .proof-block{margin-top:0}
+
+/* Media and interactive examples remain visible in both reading modes. */
+.project-extra>.media-heading{font-size:20px;line-height:1.4;margin:0;padding:14px 16px;color:var(--ink)}
+.project-extra-body{display:block}
