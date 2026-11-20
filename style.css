@@ -272,3 +272,10 @@ h1,h2,h3{overflow-wrap:anywhere;hyphens:auto}
  .hero-portrait{grid-row:1;width:120px;border-radius:14px}
  .project-facts{grid-template-columns:1fr;gap:8px}
 }
+
+/* Original full case studies in normal mode; concise summaries in Easy read. */
+.easy-only{display:none}
+[data-reading="easy"] .easy-only{display:grid}
+[data-reading="easy"] .project-resources.easy-only{display:flex}
+[data-reading="easy"] .full-project{display:none}
+.full-project .proof-block{margin-top:0}
